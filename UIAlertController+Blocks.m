@@ -53,7 +53,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                     otherButtonTitles:otherButtonTitles
    popoverPresentationControllerBlock:nil
                              tapBlock:tapBlock
-                             animated:YES];
+                             animated:NO];
 }
 
 + (instancetype)showInViewController:(UIViewController *)viewController
@@ -132,7 +132,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                     destructiveButtonTitle:destructiveButtonTitle
                          otherButtonTitles:otherButtonTitles
                                   tapBlock:tapBlock
-                                  animated:YES];
+                                  animated:NO];
 }
 
 + (instancetype)showAlertInViewController:(UIViewController *)viewController
@@ -171,7 +171,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                           destructiveButtonTitle:destructiveButtonTitle
                                otherButtonTitles:otherButtonTitles
                                         tapBlock:tapBlock
-                                        animated:YES];
+                                        animated:NO];
 }
             
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
@@ -211,7 +211,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                                otherButtonTitles:otherButtonTitles
               popoverPresentationControllerBlock:popoverPresentationControllerBlock
                                         tapBlock:tapBlock
-                                        animated:YES];
+                                        animated:NO];
 
 }
 
