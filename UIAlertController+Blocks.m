@@ -44,6 +44,29 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
   popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
                             tapBlock:(UIAlertControllerCompletionBlock)tapBlock
 {
+    return [self showInViewController:viewController
+                            withTitle:title
+                              message:message
+                       preferredStyle:UIAlertControllerStyleAlert
+                    cancelButtonTitle:cancelButtonTitle
+               destructiveButtonTitle:destructiveButtonTitle
+                    otherButtonTitles:otherButtonTitles
+   popoverPresentationControllerBlock:nil
+                             tapBlock:tapBlock
+                             animated:YES];
+}
+
++ (instancetype)showInViewController:(UIViewController *)viewController
+                           withTitle:(NSString *)title
+                             message:(NSString *)message
+                      preferredStyle:(UIAlertControllerStyle)preferredStyle
+                   cancelButtonTitle:(NSString *)cancelButtonTitle
+              destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                   otherButtonTitles:(NSArray *)otherButtonTitles
+  popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
+                            tapBlock:(UIAlertControllerCompletionBlock)tapBlock
+                            animated:(BOOL)animated
+{
     UIAlertController *strongController = [self alertControllerWithTitle:title
                                                                  message:message
                                                           preferredStyle:preferredStyle];
@@ -89,7 +112,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
         popoverPresentationControllerBlock(controller.popoverPresentationController);
     }
     
-    [viewController presentViewController:controller animated:YES completion:nil];
+    [viewController presentViewController:controller animated:animated completion:nil];
     
     return controller;
 }
@@ -102,6 +125,25 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(UIAlertControllerCompletionBlock)tapBlock
 {
+    return [self showAlertInViewController:(UIViewController *)viewController
+                                 withTitle:title
+                                   message:message
+                         cancelButtonTitle:cancelButtonTitle
+                    destructiveButtonTitle:destructiveButtonTitle
+                         otherButtonTitles:otherButtonTitles
+                                  tapBlock:tapBlock
+                                  animated:YES];
+}
+
++ (instancetype)showAlertInViewController:(UIViewController *)viewController
+                                withTitle:(NSString *)title
+                                  message:(NSString *)message
+                        cancelButtonTitle:(NSString *)cancelButtonTitle
+                   destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                        otherButtonTitles:(NSArray *)otherButtonTitles
+                                 tapBlock:(UIAlertControllerCompletionBlock)tapBlock
+                                 animated:(BOOL)animated
+{
     return [self showInViewController:viewController
                             withTitle:title
                               message:message
@@ -110,7 +152,8 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                destructiveButtonTitle:destructiveButtonTitle
                     otherButtonTitles:otherButtonTitles
             popoverPresentationControllerBlock:nil
-                             tapBlock:tapBlock];
+                             tapBlock:tapBlock
+                             animated:animated];
 }
 
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
@@ -127,8 +170,28 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                                cancelButtonTitle:cancelButtonTitle
                           destructiveButtonTitle:destructiveButtonTitle
                                otherButtonTitles:otherButtonTitles
+                                        tapBlock:tapBlock
+                                        animated:YES];
+}
+            
++ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
+                                      withTitle:(NSString *)title
+                                        message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                         destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                              otherButtonTitles:(NSArray *)otherButtonTitles
+                                       tapBlock:(UIAlertControllerCompletionBlock)tapBlock
+                                       animated:(BOOL)animated
+{
+    return [self showActionSheetInViewController:viewController
+                                       withTitle:title
+                                         message:message
+                               cancelButtonTitle:cancelButtonTitle
+                          destructiveButtonTitle:destructiveButtonTitle
+                               otherButtonTitles:otherButtonTitles
               popoverPresentationControllerBlock:nil
-                                        tapBlock:tapBlock];
+                                        tapBlock:tapBlock
+                                        animated:animated];
 }
 
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
@@ -140,6 +203,28 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
              popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(UIAlertControllerCompletionBlock)tapBlock
 {
+    return [self showActionSheetInViewController:viewController
+                                       withTitle:title
+                                         message:message
+                               cancelButtonTitle:cancelButtonTitle
+                          destructiveButtonTitle:destructiveButtonTitle
+                               otherButtonTitles:otherButtonTitles
+              popoverPresentationControllerBlock:popoverPresentationControllerBlock
+                                        tapBlock:tapBlock
+                                        animated:YES];
+
+}
+
++ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
+                                      withTitle:(NSString *)title
+                                        message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                         destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                              otherButtonTitles:(NSArray *)otherButtonTitles
+             popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
+                                       tapBlock:(UIAlertControllerCompletionBlock)tapBlock
+                                       animated:(BOOL)animated
+{
     return [self showInViewController:viewController
                             withTitle:title
                               message:message
@@ -148,7 +233,8 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                destructiveButtonTitle:destructiveButtonTitle
                     otherButtonTitles:otherButtonTitles
             popoverPresentationControllerBlock:popoverPresentationControllerBlock
-                             tapBlock:tapBlock];
+                             tapBlock:tapBlock
+                             animated:animated];
 }
 
 #pragma mark -
